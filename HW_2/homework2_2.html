@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="people-table"></table>
+</body>
+<script>
+
+    let studentNameList = ['Jack', 'Tom', 'Jeep']
+
+    let student = {
+        name: 'Jack',
+        address: 'Ladproaw',
+        job: 'Marketing'
+    }
+
+    let peopleSalary = [
+    {
+        "id": "1001",
+        "firstname": "Luke",
+        "lastname": "Skywalker",
+        "company": "Walt Disney",
+        "salary": "40000"
+    },
+    {
+        "id": "1002",
+        "firstname": "Tony",
+        "lastname": "Stark",
+        "company": "Marvel",
+        "salary": "100000"
+    },
+    {
+        "id": "1003",
+        "firstname": "Somchai",
+        "lastname": "Love2work",
+        "company": "Walt Disney",
+        "salary": "20000"
+    },
+    {
+        "id": "1004",
+        "firstname": "Monkey D",
+        "lastname": "Luffee",
+        "company": "One piece",
+        "salary": "900000"
+    }
+]
+
+let people = peopleSalary[0]
+let columnTitle = Object.keys(people)
+
+console.log(columnTitle)
+
+</script>
+</html>
