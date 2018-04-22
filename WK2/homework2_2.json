@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1001",
+        "firstname": "Luke",
+        "lastname": "Skywalker",
+        "company": "Walt Disney",
+        "salary": "40000"
+    },
+    {
+        "id": "1002",
+        "firstname": "Tony",
+        "lastname": "Stark",
+        "company": "Marvel",
+        "salary": "100000"
+    },
+    {
+        "id": "1003",
+        "firstname": "Somchai",
+        "lastname": "Love2work",
+        "company": "Walt Disney",
+        "salary": "20000"
+    },
+    {
+        "id": "1004",
+        "firstname": "Monkey D",
+        "lastname": "Luffee",
+        "company": "One piece",
+        "salary": "900000"
+    }
+]
