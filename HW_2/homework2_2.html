@@ -9,23 +9,19 @@
     <style>
         table,
         tr,
-        td {
+        td,
+        th {
             border: 1px solid black;
         }
     </style>
 </head>
 <body>
-    <table id="people-table"></table>
+    <table id="people-table">
+        <tr id="column-header"> 
+        </tr>
+    </table>
 </body>
 <script>
-
-    let studentNameList = ['Jack', 'Tom', 'Jeep']
-
-    let student = {
-        name: 'Jack',
-        address: 'Ladproaw',
-        job: 'Marketing'
-    }
 
     let peopleSalary = [
     {
@@ -58,10 +54,23 @@
     }
 ]
 
-let people = peopleSalary[0]
-let columnTitle = Object.keys(people)
+// Make column title
+let columnName = Object.keys(peopleSalary[0])
+for(columnIndex in columnName) {
+    if(columnName[columnIndex] !== 'company') {
+        $('#column-header').append($(`<th>${columnName[columnIndex]}</th>`))
+    }
+}
 
-console.log(columnTitle)
+// Make table data
+for(people in peopleSalary) {
+    $('#people-table').append($(`<tr id="row-${people}"></tr>`))
+    for(data in peopleSalary[people]) {
+        if(data !== 'company') {
+            $(`#row-${people}`).append($(`<td>${peopleSalary[people][data]}</td>`))
+        }
+    }
+}
 
 </script>
 </html>
