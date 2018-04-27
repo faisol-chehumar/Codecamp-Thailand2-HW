@@ -11,22 +11,23 @@
         }
 
         div {
-            text-align: center
+            text-align: center;
         }
 
         td input,
-        td select {
-            margin-left: 2rem
+        td div {
+            margin-left: 2rem;
+            text-align: left;
         }
 
         form {
-            margin: 0 25rem
+            margin: 0 25rem;
         }
 
     </style>
 </head>
 <body>
-    <form action="/">
+    <form action="#" id="form1">
         <fieldset>
             <legend>Register Form</legend>
 
@@ -58,9 +59,11 @@
                 <tr>
                     <td><label for="birthday">Birthday:</label></td>
                     <td>
-                        <select id="birthday">
-                            <option value="1/2/1998">1/2/1998</option>
-                        </select>
+                        <div>
+                            <select id="day"></select>
+                            <select id="month"></select>
+                            <select id="year"></select>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -72,12 +75,43 @@
                 </tr>
             </table>
             <div>
-                <input type="submit" value="Submit" id="submit">
+                <input type="submit" form="form1" value="Submit" id="submit">
                 <input type="reset" value="Reset" id="reset">
             </div>
         </fieldset>
     </form>
     <script>
+
+        let dayInput = document.getElementById('day')
+        // console.log(dayInput)
+        for(let i = 1; i <= 31; i++) {
+            let dayOption = document.createElement('option')
+            let text = document.createTextNode(i)
+            dayOption.appendChild(text)
+            dayOption.setAttribute('value', i)
+            dayInput.appendChild(dayOption)
+        }
+
+        let monthInput = document.getElementById('month')
+        // console.log(dayInput)
+        for(let i = 1; i <= 12; i++) {
+            let monthOption = document.createElement('option')
+            let text = document.createTextNode(i)
+            monthOption.appendChild(text)
+            monthOption.setAttribute('value', i)
+            monthInput.appendChild(monthOption)
+        }
+
+        let yearInput = document.getElementById('year')
+        // console.log(dayInput)
+        for(let i = 1980; i <= 2005; i++) {
+            let yearOption = document.createElement('option')
+            let text = document.createTextNode(i)
+            yearOption.appendChild(text)
+            yearOption.setAttribute('value', i)
+            yearInput.appendChild(yearOption)
+        }
+
         
         let pass = document.getElementById('password')
         let confirmPass = document.getElementById('confirm-password')
