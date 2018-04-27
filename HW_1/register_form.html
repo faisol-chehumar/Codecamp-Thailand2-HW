@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Form</title>
+    <style>
+        table {
+            margin: auto;
+        }
+
+        div {
+            text-align: center
+        }
+
+        td input,
+        td select {
+            margin-left: 2rem
+        }
+
+        form {
+            margin: 0 25rem
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/">
+        <fieldset>
+            <legend>Register Form</legend>
+
+            <table>
+                <tr>
+                    <td><label for="firstname">Firstname:</label></td>
+                    <td><input type="text" name="firstname" id="firstname"></td>
+                </tr>
+                <tr>
+                    <td><label for="lastname">Lastname:</label></td>
+                    <td><input type="text" name="lastname" id="lastname"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td><label for="confirm-password">Confirm Password:</label></td>
+                    <td><input type="password" name="confirm-password" id="confirm-password"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" name="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="confirm-email">Confirm Email:</label></td>
+                    <td><input type="email" name="confirm-email" id="confirm-email"></td>
+                </tr>
+                <tr>
+                    <td><label for="birthday">Birthday:</label></td>
+                    <td>
+                        <select id="birthday">
+                            <option value="1/2/1998">1/2/1998</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input id="male" type="radio" name="gender" value="male" checked><label for="male">Male</label>
+                        <input id="female" type="radio" name="gender" value="female"><label for="female">Female</label>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <input type="submit" value="Submit" id="submit">
+                <input type="reset" value="Reset" id="reset">
+            </div>
+        </fieldset>
+    </form>
+    <script>
+        
+        let pass = document.getElementById('password')
+        let confirmPass = document.getElementById('confirm-password')
+        let lastPassUpdate = 0
+        
+        confirmPass.addEventListener('input', function() {
+            let tmpPassUpdate = Date.now()
+            lastPassUpdate = Date.now()
+
+            setTimeout(() => {
+                
+                if(tmpPassUpdate === lastPassUpdate) {
+                    checkMatch('Password', pass.value, confirmPass.value)
+                }
+            }, 1000)
+        })
+
+        let email = document.getElementById('email')
+        let confirmEmail = document.getElementById('confirm-email')
+        let lastEmailUpdate = 0
+
+        confirmEmail.addEventListener('input', function() {
+        let tmpEmailUpdate = Date.now()
+        lastEmailUpdate = Date.now()
+
+            setTimeout(() => {
+                if(tmpEmailUpdate === lastEmailUpdate) {
+                    checkMatch('Email', email.value, confirmEmail.value)
+                }
+            }, 1000)
+        })
+
+        function checkMatch(inputType, firstValue, confirmValue) {
+            // console.log('pass: ', firstValue)     
+            // console.log('confirmPass: ', confirmValue)       
+            if(firstValue !== confirmValue) {
+                alert(`${inputType} is not match!`)
+            } else {
+                alert(`${inputType} is available!`)
+            }
+        }
+
+        const submitButton = document.getElementById('submit')
+    </script>
+</body>
+</html>
