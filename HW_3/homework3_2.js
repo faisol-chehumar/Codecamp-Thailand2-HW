@@ -5,9 +5,11 @@ $(document).ready(() => {
      .then(myJson => {
         // console.log(myJson);
         let employees = myJson
-        addAdditionalFields(employees)
+        let newEmployees = addAdditionalFields(employees)
         console.log(employees)
-        buildTable(employees)
+        // console.log(newEmployees)
+        buildTable('#original-column-header', '#original-people-table', employees)
+        buildTable('#new-column-header', '#new-people-table', newEmployees)
      })
      .catch(error => {
         console.error('Error:', error);
@@ -30,28 +32,40 @@ function addNextSalary(row) {
 }
 
 function addAdditionalFields(employeesList) {
+    let tmpEmployeesList = []
     for(row in employeesList) {
-        addYearSalary(employeesList[row])
-        addNextSalary(employeesList[row])
+        let obj = {}
+        for(data in employeesList[row]) {
+            // console.log(data)
+            obj[data] = employeesList[row][data]
+        }
+        tmpEmployeesList.push(obj)
     }
+    for(row in tmpEmployeesList) {
+        addYearSalary(tmpEmployeesList[row])
+        addNextSalary(tmpEmployeesList[row])
+    }
+    return tmpEmployeesList
 }
 
-function buildTable(peopleData) {
+function buildTable(elmHeader, elmBody, peopleData) {
     
     // Make column title
     let columnName = Object.keys(peopleData[0])
     for(columnIndex in columnName) {
-        $('#column-header').append($(`<th>${columnName[columnIndex]}</th>`))
+        $(elmHeader).append($(`<th>${columnName[columnIndex]}</th>`))
     }
     // console.log(columnName)
+    // console.log(peopleData)
     
     // Make table data
     for(people in peopleData) {
-        $('#people-table').append($(`<tr id="row-${people}"></tr>`))
+        $(elmBody).append($(`<tr id="row-${elmHeader.substring(1)}-${people}"></tr>`))
         for(data in peopleData[people]) {
             // console.log(data)
             if(data !== 'nextSalary') {
-                $(`#row-${people}`).append($(`<td>${peopleData[people][data]}</td>`))
+                $(`#row-${elmHeader.substring(1)}-${people}`).append($(`<td>${peopleData[people][data]}</td>`))
+                // console.log(data)
             }
             if(data === 'nextSalary') {
                 let salaryLists = ''
@@ -59,7 +73,7 @@ function buildTable(peopleData) {
                     salaryLists += `<li>${peopleData[people][data][salaryIndex]}</li>`
                 }
                 // console.log(salaryLists)
-                $(`#row-${people}`).append($(`<td><ol>${salaryLists}</ol></td>`))
+                $(`#row-${elmHeader.substring(1)}-${people}`).append($(`<td><ol>${salaryLists}</ol></td>`))
             }
         }
     }
