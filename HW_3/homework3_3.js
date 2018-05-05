@@ -52,6 +52,7 @@ let test4 = [1,2,{a:1,b:{c:3,d:4}}]
 let clonetest4 = cloneObj(test4)
 
 console.log(test1)
+clonetest1 = [5, 6, 7]
 console.log(clonetest1)
 
 console.log(test2)
@@ -64,5 +65,6 @@ clonetest4 = [1,2,{a:1,b:{c:3,d:4, e:5}}]
 
 console.log(test4)
 console.log(clonetest4)
+
 
 
