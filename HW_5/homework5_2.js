@@ -18,24 +18,15 @@ function setCurrenciesOption(selectId) {
 		})
 }
 
-function getConvertRate(oldCurrency, newCurrency) {
-	let url = `http://free.currencyconverterapi.com/api/v5/convert?q=${oldCurrency}_${newCurrency}&compact=y`
-	let coveterPromise = $.get(url)
-
-	coveterPromise
-		.then(function(res) {})
-	return coveterPromise
-}
-
 function covertCurrencies(oldCurrencyId, newCurrencyId) {
 	let oldCurrency = $(oldCurrencyId).val()
 	let newCurrency = $(newCurrencyId).val()
 	let url = `http://free.currencyconverterapi.com/api/v5/convert?q=${oldCurrency}_${newCurrency}&compact=y`
-	let coveterPromise = $.get(url)
-
-	getConvertRate(oldCurrency, newCurrency).then(function(res) {
+	
+	$.get(url).then(function(res) {
 		let currencyPair = `${oldCurrency}_${newCurrency}`
 		let result = $('#currencies').val() * res[currencyPair].val
 		$('#coverted-result').append(result)
 	})
+
 }
