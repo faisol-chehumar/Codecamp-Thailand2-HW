@@ -1,0 +1,26 @@
+.theme-one {
+  background-color: #333;
+  color: #fff;
+}
+
+.theme-one .nav-bar {
+  background-color: #222 !important;
+  border-bottom: 1px solid #111 !important;
+}
+
+.theme-one a {
+  color: red;
+}
+
+.theme-two {
+  background-color: #eee;
+}
+
+.theme-two .nav-bar {
+  background-color: #e0e0e0 !important;
+  border-bottom: 1px solid #ccc !important;
+}
+
+.theme-two a {
+  color: blue;
+}

@@ -9,14 +9,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="homework5_2.js"></script>
   <style>
-      body {
-          padding: 10rem 30rem;
-      }
+    .body {
+        padding: 10rem 32rem;
+    }
   </style>
 </head>
 <body>
-    <div class="form-group">
-        <label for="email">Product price: </label>
-        <input class="form-control" type="text" id="product-price">
+    <div class="body">
+        <form class="form-inline justify-content-end mb-2">
+            <div class="form-group">
+                <input type="text" class="form-control" id="currencies" placeholder="Type your money">
+            </div>
+            <div class="form-group ml-sm-3">
+                <select class="form-control" id="old-currency"></select>
+            </div>
+        </form>
+        <form class="form-inline justify-content-end mb-2">
+            <p id="coverted-result" style="font-weight: 800"></p>
+            <div class="form-group ml-sm-3">
+                <select class="form-control" id="new-currency"></select>
+            </div>
+        </form>
+        <div class="text-right">
+            <button class="btn btn-primary mb-2" id="convert-btn">Convert</button>
+        </div>
+    </div>
 </body>
 </html>

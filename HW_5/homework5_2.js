@@ -1,32 +1,41 @@
 $(document).ready(function() {
-    $('#product-price').keyup(function() {
-        // let numberStr = $('#product-price').val().replace(/,/g, '')
-        // let commaPos = numberStr.length - 3
-        // let commaNum = Math.floor(numberStr.length/3)
+	setCurrenciesOption('#old-currency')
+	setCurrenciesOption('#new-currency')
 
-        
-        // if(numberStr.length % 3 === 0) {
-        //     commaNum -= 1
-        // }
-
-        // for(let i = commaNum; i > 0; i--) {
-            
-        //     numberStr = numberStr.splice(commaPos, 0, ',')
-            
-        //     commaPos -= 3
-        // }
-
-        // $('#product-price').val(numberStr)
-        // console.log(numberStr)
-        let newNumber = numberWithCommas($('#product-price').val().replace(/,/g, ''))
-        $('#product-price').val(newNumber)
-    })
+	$('#convert-btn').click(function() {
+		covertCurrencies('#old-currency', '#new-currency')
+	})
 })
 
-// String.prototype.splice = function(start, delCount, newSubStr) {
-//     return this.slice(0, start) + newSubStr + this.slice(start + Math.abs(delCount));
-// };
+function setCurrenciesOption(selectId) {
+	$.get('https://free.currencyconverterapi.com/api/v5/currencies')
+	  .then(function(res) {
+			for(currencyKey in res.results) {
+				$(selectId).append(
+					`<option>${currencyKey}</option>`
+				)
+			}
+		})
+}
 
-const numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+function getConvertRate(oldCurrency, newCurrency) {
+	let url = `http://free.currencyconverterapi.com/api/v5/convert?q=${oldCurrency}_${newCurrency}&compact=y`
+	let coveterPromise = $.get(url)
+
+	coveterPromise
+		.then(function(res) {})
+	return coveterPromise
+}
+
+function covertCurrencies(oldCurrencyId, newCurrencyId) {
+	let oldCurrency = $(oldCurrencyId).val()
+	let newCurrency = $(newCurrencyId).val()
+	let url = `http://free.currencyconverterapi.com/api/v5/convert?q=${oldCurrency}_${newCurrency}&compact=y`
+	let coveterPromise = $.get(url)
+
+	getConvertRate(oldCurrency, newCurrency).then(function(res) {
+		let currencyPair = `${oldCurrency}_${newCurrency}`
+		let result = $('#currencies').val() * res[currencyPair].val
+		$('#coverted-result').append(result)
+	})
 }
