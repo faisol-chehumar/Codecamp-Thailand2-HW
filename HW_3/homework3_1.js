@@ -3,7 +3,7 @@ $(document).ready(() => {
         return response.json();
      })
      .then(myJson => {
-        // console.log(myJson);
+        console.log(myJson);
         let employees = myJson
         addAdditionalFields(employees)
         console.log(employees)

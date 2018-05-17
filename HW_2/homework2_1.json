@@ -11,7 +11,7 @@
         "firstname": "Tony",
         "lastname": "Stark",
         "company": "Marvel",
-        "salary": "100000"
+        "salary": "1000000"
     },
     {
         "id": "1003",
@@ -25,6 +25,6 @@
         "firstname": "Monkey D",
         "lastname": "Luffee",
         "company": "One piece",
-        "salary": "900000"
+        "salary": "9000000"
     }
 ]

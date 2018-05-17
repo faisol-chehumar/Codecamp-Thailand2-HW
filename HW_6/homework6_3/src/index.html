@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1>Hello World</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi voluptate tenetur et dignissimos a repudiandae porro doloremque laudantium blanditiis quo libero architecto ipsum quae perspiciatis minima nam, voluptas reiciendis? Repellat.</p>
+    </div>
+    <div class="flex-container">
+      <div class="col-lg-4">
+        <img src=<%= require("./assets/img_one.jpg") %> alt="" width="100%">
+      </div>
+      <div class="col-lg-8">
+        <div class="flex-container">
+          <div class="col-6 col-lg-3"><img src=<%= require("./assets/any.jpg") %> alt="" width="100%"></div>
+          <div class="col-6 col-lg-3"><img src=<%= require("./assets/any.jpg") %> alt="" width="100%"></div>
+          <div class="col-6 col-lg-3"><img src=<%= require("./assets/any.jpg") %> alt="" width="100%"></div>
+          <div class="col-6 col-lg-3"><img src=<%= require("./assets/any.jpg") %> alt="" width="100%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-grp hide-xs">
+      <button>บันทึกไว้ก่อน</button>
+      <button class="btn-hillight">ต่อไป</button>
+    </div>
+  </div>
+</body>
+</html>
