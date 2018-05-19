@@ -1,18 +1,15 @@
 const fs = require('fs')
+const robotSourcePath = './../codecamp2/homework/Day8_nodejs/homework8_1/'
 
 buildRobot(['head', 'body', 'leg', 'feet'])
 
 async function buildRobot(robotPartList) {
   try {
-    let robot = ''
+    let allRobotPart = ''
     for(part of robotPartList) {
-      robot += await createRobotPart(part)  
+      allRobotPart += await createRobotPart(part)  
     }
-    fs.writeFile('robot.txt', robot, 'utf8', (err) => {
-      if(err) {
-        console.error(err)
-      }
-    })
+    await compoundRobot(allRobotPart)
   } catch(error) {
     console.error(error)
   }
@@ -20,11 +17,23 @@ async function buildRobot(robotPartList) {
 
 function createRobotPart(part) {
   return new Promise(function(resolve, reject) {
-    fs.readFile(`./../codecamp2/homework/Day8_nodejs/homework8_1/${part}.txt`, 'utf8', (err, data) => {
+    fs.readFile(`${robotSourcePath}${part}.txt`, 'utf8', (err, data) => {
       if(err) {
         reject(err)
       } else {
         resolve(data + '\n')
+      }
+    })
+  })
+}
+
+function compoundRobot(allRobotPart) {
+  return new Promise(function(resolve, reject) {
+    fs.writeFile('robot.txt', allRobotPart, 'utf8', (err) => {
+      if(err) {
+        reject(err)
+      } else {
+        resolve('Complete build Robot!')
       }
     })
   })
