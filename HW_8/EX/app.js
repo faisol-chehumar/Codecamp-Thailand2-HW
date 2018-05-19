@@ -11,6 +11,6 @@ function tryHello6(callbackFunction) {
 }
 console.log(tryHello6(hello6)); // print returnValue
 console.log(callbackValue); // print callbackValueOld
-console.log(hello6(null, 'tes'))
+console.log(hello6(null, 'test'))
 
 // HW4_4 must be parallel not sqauence
