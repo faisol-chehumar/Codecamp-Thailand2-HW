@@ -1,0 +1,36 @@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>company</th>
+            <th>salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(let x in data) { %>
+        <tr>
+            <td>
+            <%= data[x].id %>
+            </td>
+            <td>
+            <%= data[x].firstname %>
+            </td>
+            <td>
+            <%= data[x].lastname %>
+            </td>
+            <td>
+            <%= data[x].company %>
+            </td>
+            <td>
+            <%= data[x].salary %>
+            </td>
+        </tr>
+        <%}%>
+    </tbody>
+</table>
+
+
+

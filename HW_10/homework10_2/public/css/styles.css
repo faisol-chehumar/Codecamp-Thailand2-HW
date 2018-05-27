@@ -1,0 +1,37 @@
+nav ul {
+  padding-left: 0
+}
+
+nav li {
+  display: inline;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-indent: 50px;
+}
+
+.portfolio nav ul {
+  padding-left: 0
+}
+
+.portfolio nav li {
+  display: inline;
+}
+
+.portfolio img {
+  display: block;
+  margin: auto;
+}
+
+.portfolio h1 {
+  text-align: center;
+}
