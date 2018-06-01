@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <% for(x of key) {%>
+      <th><%= x %></th>
+      <% } %>
+    </tr>
+  </thead>
+  <tbody>
+    <% rows.map(row => { %>
+      <tr>
+        <% for(x in row) { %>
+        <td>
+        <%= row[x] %>
+        <% } %>
+        </td>
+      </tr>
+    <%})%>
+  </tbody>
+</table>
