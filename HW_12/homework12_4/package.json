@@ -1,0 +1,19 @@
+{
+  "name": "homework12_4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "isomorphic-unfetch": "^2.0.0",
+    "koa": "^2.5.1",
+    "koa-ejs": "^4.1.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.3",
+    "mysql2": "^1.5.3"
+  }
+}
