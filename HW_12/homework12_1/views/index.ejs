@@ -1,0 +1,43 @@
+<table class="table">
+  <thead>
+    <tr>
+      <% book['colName'].map(x => { %>
+      <th><%= x %></th>
+      <% }) %>
+    </tr>
+  </thead>
+  <tbody>
+  <% book['rows'].map(row => { %>
+    <tr>
+      <% for(x in row) { %>
+      <td>
+      <%= row[x] %>
+      <% } %>
+      </td>
+    </tr>
+  <%})%>
+</tbody>
+</table>
+
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <% book['colName'].map(x => { %>
+      <th><%= x %></th>
+      <% }) %>
+    </tr>
+  </thead>
+  <tbody>
+  <% book['rows'].map(row => { %>
+    <tr>
+      <% for(x in row) { %>
+      <td>
+      <%= row[x] %>
+      <% } %>
+      </td>
+    </tr>
+  <%})%>
+</tbody>
+</table>
