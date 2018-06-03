@@ -1,0 +1,43 @@
+<table class="table">
+  <thead>
+    <tr>
+      <% data_1['colName'].map(x => { %>
+      <th><%= x %></th>
+      <% }) %>
+    </tr>
+  </thead>
+  <tbody>
+  <% data_1['rows'].map(row => { %>
+    <tr>
+      <% for(x in row) { %>
+      <td>
+      <%= row[x] %>
+      <% } %>
+      </td>
+    </tr>
+  <%})%>
+</tbody>
+</table>
+
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <% data_2['colName'].map(x => { %>
+      <th><%= x %></th>
+      <% }) %>
+    </tr>
+  </thead>
+  <tbody>
+  <% data_2['rows'].map(row => { %>
+    <tr>
+      <% for(x in row) { %>
+      <td>
+      <%= row[x] %>
+      <% } %>
+      </td>
+    </tr>
+  <%})%>
+</tbody>
+</table>
