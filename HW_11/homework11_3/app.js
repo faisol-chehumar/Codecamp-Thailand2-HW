@@ -4,7 +4,7 @@ const Router = require('koa-router')
 // const fs = require('fs')
 // const readFile = promisify(fs.readFile)
 const fromDatabase = require('./model/from_database.js')
-const fromFile = require('./model/from_file.js')
+const getDataFromFile = require('./model/from_file.js')
 
 
 
@@ -25,9 +25,9 @@ router.get('/from_database', async (ctx, next) => {
 })
 
 router.get('/from_file', async (ctx, next) => {
-  let dataJson = await fromFile.getDataFromFile()
+  let dataJson = await getDataFromFile()
   ctx.result = JSON.parse(dataJson)
-  await next() 
+  await next()
 })
 
 async function setAdditionData(ctx, next) {

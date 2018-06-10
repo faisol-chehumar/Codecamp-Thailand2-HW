@@ -1,0 +1,7 @@
+// สำหรับใช้ Code standard
+npm install -g standard
+standard <filename.js>
+
+// ใช้สำหรับต่อ DB
+ืnavicat
+

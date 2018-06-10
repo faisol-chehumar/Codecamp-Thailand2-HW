@@ -1,13 +1,13 @@
 <table class="table">
   <thead>
     <tr>
-      <% book['colName'].map(x => { %>
+      <% data_1['colName'].map(x => { %>
       <th><%= x %></th>
       <% }) %>
     </tr>
   </thead>
   <tbody>
-  <% book['rows'].map(row => { %>
+  <% data_1['rows'].map(row => { %>
     <tr>
       <% for(x in row) { %>
       <td>
@@ -24,13 +24,13 @@
 <table class="table">
   <thead>
     <tr>
-      <% staff['colName'].map(x => { %>
+      <% data_2['colName'].map(x => { %>
       <th><%= x %></th>
       <% }) %>
     </tr>
   </thead>
   <tbody>
-  <% staff['rows'].map(row => { %>
+  <% data_2['rows'].map(row => { %>
     <tr>
       <% for(x in row) { %>
       <td>

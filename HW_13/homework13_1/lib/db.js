@@ -5,7 +5,7 @@ const pool = mysql.createPool({
   host            : 'localhost',
   user            : 'root',
   password        : 'secret',
-  database        : 'codecamp'
+  database        : 'online_course'
 })
 
 module.exports = pool

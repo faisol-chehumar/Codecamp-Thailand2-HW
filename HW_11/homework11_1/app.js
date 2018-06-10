@@ -30,6 +30,8 @@ router.get('/', async (ctx) => {
     key: Object.keys(result[0][0]),
     rows: result[0]
   }
+  console.log(result)
+  console.log(data)
   console.log(data.rows)
   await ctx.render('index', data)
 })

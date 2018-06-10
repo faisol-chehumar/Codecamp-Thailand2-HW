@@ -7,4 +7,4 @@ async function getDataFromFile() {
   return dataJson
 }
 
-module.exports.getDataFromFile = getDataFromFile
+module.exports = getDataFromFile
