@@ -1,0 +1,5 @@
+<% const temp = user.jsonData.certification.map( cerObject => cerObject.name + " : " + cerObject.year).join("<br>"); %>
+<% user.jsonData = temp %>
+<ul>
+    <%- Object.keys(user).map( key => "<li>" + user[key] + "</li>" ).join('\n') %>
+</ul>
