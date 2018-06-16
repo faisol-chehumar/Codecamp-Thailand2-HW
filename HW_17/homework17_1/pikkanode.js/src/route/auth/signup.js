@@ -1,15 +1,18 @@
 const { user } = require('../../repository')
 
-const getHandler = (ctx) => {
-	ctx.body = 'sign up get handler'
+const getHandler = async (ctx) => {
+	// console.log('signup')
+	await ctx.render('signup')
 }
 
 const postHandler = async (ctx) => {
-	const { email, password } = ctx.request.body
+	const { username, password } = ctx.request.body
 	// TODO: validate email, password
-	const userId = await user.register(email, password)
+	const userId = await user.register(username, password)
+	console.log(userId)
 
 	// TODO: handle user id ?
+	ctx.body = `Email: ${username}, Password: ${password}`
 }
 
 module.exports = {
