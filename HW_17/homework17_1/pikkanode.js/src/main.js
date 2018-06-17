@@ -27,6 +27,8 @@ app.use(koaBody({ multipart: true }))
 app.use(require('./route'))
 
 app.use(stripPrefix)
-app.use(serve('public'))
+app.use(serve(path.join(__dirname, 'public')))
+// console.log(__dirname)
 
 app.listen(8000)
+
