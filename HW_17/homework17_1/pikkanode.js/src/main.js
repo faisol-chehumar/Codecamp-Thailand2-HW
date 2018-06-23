@@ -2,6 +2,7 @@ const Koa = require('koa')
 const koaBody = require('koa-body')
 const serve = require('koa-static')
 const path = require('path')
+const cors = require('@koa/cors')
 
 const app = new Koa()
 const render = require('koa-ejs')
@@ -22,6 +23,14 @@ render(app, {
 	viewExt: 'ejs',
 	cache: false
 })
+
+app.use(cors({
+	// origin: 'http://example.com',
+	allowMethods: ['GET', 'POST'],
+	allowHeaders: ['Authorization', 'Content-Type'],
+	maxAge: 5,
+	credentials: true
+}))
 
 app.use(koaBody({ multipart: true }))
 app.use(require('./route'))

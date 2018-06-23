@@ -7,11 +7,11 @@ const uploadImage = async (id, caption, createdBy) => {
 		values
 			(?, ?, ?)
 	`, [ id, caption, createdBy ])
-
-	// ????
 	return 1
 }
 
 module.exports = {
 	uploadImage
 }
+
+
