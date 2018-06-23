@@ -1,8 +1,21 @@
 
-
   <% data.forEach((img) => {%>
     <img src="/-/images/<%= img.id %>" alt="">
     <p>
       <%= img.caption %>
+    </p>
+    <p>Comment: 
+      <% if(img.quantity_comment !== null) {%>
+        <%= img.quantity_comment %>
+      <%} else {%>
+        none
+      <%}%>
+    </p>
+    <p>Like: 
+    <% if(img.quantity_comment !== null) {%>
+      <%= img.quantity_likes %>
+      <%} else {%>
+        none
+      <%}%>
     </p>
   <%})%>

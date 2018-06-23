@@ -1,7 +1,7 @@
 const pool = require('../db')
 
 const uploadImage = async (id, caption, createdBy) => {
-	const result = await pool.query(`
+	await pool.query(`
 		insert into pictures
 			(id, caption, created_by)
 		values
