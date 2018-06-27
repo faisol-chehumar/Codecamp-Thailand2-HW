@@ -1,34 +1,48 @@
 
-  <form id="search-form" action="/seach" method="POST" enctype="multipart/form-data">
-  <div class="form-group col-xs-9">
-    <input autocomplete="off" name="search" class="form-control" type="text" placeholder="Search">
-  </div>
-  <div class="form-group col-xs-3">
-    <button type="submit" class="btn btn-block btn-primary">Search</button>
-  </div>
-  </form>
+  <h1 class="my-4">PikkaNode</h1>
 
-  <!--<%= data.id %>-->
+  <form id="search-form" action="/seach" method="POST" enctype="multipart/form-data">
+  <div class="row">
+    <div class="form-group col-lg-8">
+      <input autocomplete="off" name="search" class="form-control" type="text" placeholder="Search">
+    </div>
+    <div class="form-group col-lg-4">
+      <button type="submit" class="btn btn-block btn-primary">Search</button>
+    </div>
+    </div>
+  </form>
   
-  <% data.forEach((img) => {%>
-    <a href="/pikka/<%= img.id %>">
-      <img src="/-/images/<%= img.id %>" alt="">
-    </a>
-    <p>
-      <%= img.caption %>
-    </p>
-    <p>Comment: 
-      <% if(img.quantity_comment !== null) {%>
-        <%= img.quantity_comment %>
-      <%} else {%>
-        none
-      <%}%>
-    </p>
-    <p>Like: 
-    <% if(img.quantity_likes !== null) {%>
-      <%= img.quantity_likes %>
-      <%} else {%>
-        none
-      <%}%>
-    </p>
-  <%})%>
+  <div class="row">
+    <% data.forEach((img) => {%>
+      <div class="col-lg-3">
+        <a href="/pikka/<%= img.id %>">
+          <div class="card">
+            <div class="card-img-top" style="min-height: 215px">
+              <img  width="100%" src="/-/images/<%= img.id %>" alt="">
+            </div>
+            <div class="card-body">
+            <h3 class="card-title">
+              <%= img.caption %>
+            </h3>
+            <p class="card-text">Comment: 
+              <% if(img.quantity_comment !== null) {%>
+                <%= img.quantity_comment %>
+              <%} else {%>
+                none
+              <%}%>
+            </p>
+            <p class="card-text">Like: 
+            <% if(img.quantity_likes !== null) {%>
+              <%= img.quantity_likes %>
+              <%} else {%>
+                none
+              <%}%>
+            </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    <%})%>
+  </div>
+
+ 

@@ -5,6 +5,7 @@ const detail = require('./detail')
 const like = require('./like')
 const comment = require('./comment')
 const search = require('./search')
+const signin = require('./signin')
 
 module.exports = {
 	user,
@@ -13,5 +14,6 @@ module.exports = {
 	detail,
 	like,
 	comment,
-	search
+	search,
+	signin
 }

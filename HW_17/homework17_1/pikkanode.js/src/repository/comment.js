@@ -1,10 +1,10 @@
 const pool = require('../db')
 
-const commentImage = async (textComment, pictureId) => {
+const commentImage = async (textComment, pictureId, userId) => {
 	await pool.query(`
     INSERT INTO comments (comments.text, comments.picture_id, comments.created_by) VALUES
-    (?, ?, 1)
-	`, [ textComment, pictureId ])
+    (?, ?, ?)
+	`, [ textComment, pictureId, userId ])
 
 	// ????
 	// return result[0]

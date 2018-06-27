@@ -1,36 +1,62 @@
+<div class="row">
+  <div class="col-sm">
 
-  <img src="/-/images/<%= data[0].id %>" alt="">
-  <p>
-    <%= data[0].caption %>
-    Create by: 
-    <%= data[0].email %>
-  </p>
+  </div>
+  <div class="col-sm">
+    <div class="card" style="width: 58rem;">
+      <img class="card-img-top" src="/-/images/<%= data[0].id %>" alt="">
+      <div class="card-body" style="position: relative;">
+        <h3>
+          <%= data[0].caption %>
+        </h3>
+        <p>
+          Create by: 
+          <%= data[0].email %>
+        </p>
+        <%if(data.isLike.length > 0) {%>
+        <form name="like" action="/pikka/<%= data[0].id %>/unlike" method="POST" style="position: absolute; right: 2rem;; top: 2rem;">
+          <input type="submit" value="Unlike">
+        </form>
+        <%} else {%> 
+          <form name="like" action="/pikka/<%= data[0].id %>/like" method="POST" style="position: absolute; right: 2rem;; top: 2rem;">
+            <span class="glyphicon glyphicon-heart-empty"></span>
+            <input type="submit" value="Like">
+          </form>
+        <%}%>
+      </div>
+    </div>
+    
+    <h3 class="mt-5">COMMENT: </h3>
+    <% data.forEach((img) => {%>
+    <div class="card">
+      <div class="card-body">
+        
+          <% if(img.text !== null) {%>
+          <p><%= img.text %></p>
+          <p>Comment by: <i><%= img.comment_by %></i></p>
+          <%} else {%>
+          <p>none</p>
+          <%}%>
+        </p>
+      </div>
+    </div>
+    <%})%>
 
-  <form name="like" action="/pikka/<%= data[0].id %>/like" method="POST">
-    <input type="submit" value="Like">
-  </form>
+    <form action="/pikka/<%= data[0].id %>/comment" method="POST">
+      <textarea name="comment" rows="5" cols="100" style="padding: 1rem; width: 100%;"></textarea>
+      <br>
+      <input type="submit" value="Send">
+    </form>
 
+    <!--<p>Like: 
+    <% if(data[0].quantity_likes !== null) {%>
+      <%= data[0].quantity_likes %>
+      <%} else {%>
+        none
+      <%}%>
+    </p>-->
+  </div>
+  <div class="col-sm">
 
-  <form action="/pikka/<%= data[0].id %>/comment" method="POST">
-    <textarea name="comment" rows="5" cols="100"></textarea>
-    <input type="submit" value="Comment">
-  </form>
-
-  <h3>COMMENT: </h3>
-  <% data.forEach((img) => {%>
-  <p>
-    <% if(img.text !== null) {%>
-      <%= img.text %>
-    <%} else {%>
-      none
-    <%}%>
-  </p>
-  <%})%>
-
-  <!--<p>Like: 
-  <% if(data[0].quantity_likes !== null) {%>
-    <%= data[0].quantity_likes %>
-    <%} else {%>
-      none
-    <%}%>
-  </p>-->
+  </div>
+</div>

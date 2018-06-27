@@ -24,7 +24,7 @@ const postHandler = async (ctx) => {
 
 		await fs.rename(ctx.request.files.photo.path, path.join(pictureDir, fileName))
 
-		await create.uploadImage(fileName, ctx.request.body.caption, 1)
+		await create.uploadImage(fileName, ctx.request.body.caption, ctx.session.userId)
 		ctx.status = 303
 		ctx.redirect('/')
 	} catch (e) {

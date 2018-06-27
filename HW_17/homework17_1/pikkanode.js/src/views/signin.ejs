@@ -1,3 +1,8 @@
+<% if (flash && flash.error) { %>
+   <p style="color: red;"><%= flash.error %></p>
+<% } %>
+
+
 <div class="wrapper">
 <form class="form-signin" method="post">       
   <h2 class="form-signin-heading">Please login</h2>
