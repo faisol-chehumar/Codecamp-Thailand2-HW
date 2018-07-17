@@ -18,7 +18,7 @@ const searchCaption = async (caption) => {
   WHERE p.caption LIKE (?)
 `, [ '%' + caption + '%' ])
 
-  console.log(result)
+  // console.log(result)
 	// ????
 	return result[0]
 }

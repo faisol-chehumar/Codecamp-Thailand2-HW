@@ -2,11 +2,13 @@ const Koa = require('koa')
 const koaBody = require('koa-body')
 const serve = require('koa-static')
 const path = require('path')
-// const cors = require('@koa/cors')
+const cors = require('@koa/cors')
 const session = require('koa-session')
 
 const app = new Koa()
 const render = require('koa-ejs')
+
+// const chkAuth = require('./service/checkAuth')
 
 const sessionStore = {}
 
@@ -63,19 +65,23 @@ const flash = async (ctx, next) => { // Flash middleware
 // }
 	
 
-// app.use(cors({
-// 	// origin: 'http://example.com',
-// 	allowMethods: ['GET', 'POST'],
-// 	allowHeaders: ['Authorization', 'Content-Type'],
-// 	maxAge: 5,
-// 	credentials: true
-// }))
+app.use(cors({
+	origin: 'https://panotza.github.io',
+	allowMethods: ['GET', 'POST'],
+	allowHeaders: ['Authorization', 'Content-Type'],
+	maxAge: 5,
+	credentials: true
+}))
+
+// console.log(chkAuth.checkAuth)
 
 app
 	.use(session(sessionConfig, app))
 	.use(flash)
 
 	.use(koaBody({ multipart: true }))
+	// .use(chkAuth.checkAuth)
+	// .use(chkAuth.checkSession)
 	.use(require('./route'))
 
 	.use(stripPrefix)

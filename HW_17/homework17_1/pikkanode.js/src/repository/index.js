@@ -1,6 +1,7 @@
 const user = require('./user')
 const create = require('./create')
 const home = require('./home')
+const homeApi = require('./homeApi')
 const detail = require('./detail')
 const like = require('./like')
 const comment = require('./comment')
@@ -15,5 +16,6 @@ module.exports = {
 	like,
 	comment,
 	search,
-	signin
+	signin,
+	homeApi
 }

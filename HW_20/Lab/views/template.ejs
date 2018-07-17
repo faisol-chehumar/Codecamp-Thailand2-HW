@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script>
+  window.fbAsyncInit = function() {
+    console.log('init')
+    FB.init({
+      appId      : '2073012796291418',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.0'
+    });
+      
+    FB.AppEvents.logPageView();
+    myCallbackFunction()
+    
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    })
+
+    FB.Event.subscribe('auth.login', myCallbackFunction)
+      
+  };
+
+  
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  function statusChangeCallback() {
+    return;
+  }
+
+  function myCallbackFunction (response) {
+    // Do something
+    FB.getLoginStatus(function(response) {
+      console.log(response)
+      if(response.status === 'connected') {
+        console.log('Login Success!!')
+        FB.api("/me",function(res){
+          console.log(res)
+        })
+      } else {
+        console.log('Have not login yet!')
+      }
+    })
+  }
+
+
+  (function(d, s, id){
+     console.log('Self awake')
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+</script>
+<body>
+  
+  <%- body %>
+  
+</body>
+</html>

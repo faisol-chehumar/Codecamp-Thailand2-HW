@@ -11,6 +11,19 @@ const getUser = async (email) => {
 	return result[0]
 }
 
+const getPasswordByEmail = async (email) => {
+	const result = await pool.query(`
+    SELECT users.password FROM users
+    WHERE users.email = (?)
+	`, [ email ])
+
+	// ????
+	// console.log('result: ')
+	// console.log(result[0].password)
+	return result[0]
+}
+
 module.exports = {
-	getUser
+	getUser,
+	getPasswordByEmail
 }

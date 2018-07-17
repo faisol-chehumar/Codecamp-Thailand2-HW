@@ -9,6 +9,7 @@ const register = async (email, password) => {
 	`, [ email, password ])
 
 	// ????
+	// console.log(result)
 	return 1
 }
 
