@@ -15,8 +15,8 @@ const Retangle = styled.li`
     background-color: #f3f3f3;
   }
 
-  &.bg-blue {
-    background-color: #5caee8;
+  &.flip-card {
+    background-color: ${props => props.isWin ? 'green' : '#5caee8'};
   }
 `
 
@@ -30,16 +30,15 @@ class Card extends Component {
     console.log(this.props.row)
     console.log(this.props.col)
     this.props.toggleCard(this.props.row, this.props.col)
-    // this.setState(prevState => ({cardState: prevState.cardState === 0 ? prevState.cardState + 1 : 0}))
   }
 
   render() {
-    // const { cardState } = this.state
 
     return (
       <Retangle 
-        className={this.props.cardState ? 'bg-blue' : ''}
+        className={this.props.cardState ? 'flip-card' : ''}
         onClick={this.toggleCard} 
+        isWin={this.props.isWin} 
       />
     )
   }

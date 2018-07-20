@@ -23,23 +23,25 @@ class App extends Component {
   }
 
   chkWinCondition() {
-    let win = true
-    console.log(this.state.cardStatesTable)
-    this.state.cardStatesTable.forEach((x) => {
-      [...x].forEach((k) => {
-        if(k === 0) {
-          // console.log('false')
-          win = false
-        }
-      })
-    })
+    const [a, b, c, d, e] = this.state.cardStatesTable;
+    // const allCardState = [...a, ...b, ...c, ...d, ...e]
+    return[...a, ...b, ...c, ...d, ...e].reduce((i, j) => i * j) ? this.setState({isWin: true}) : 'Not win yet!'
     
-    if(win === true) {
-      console.log('Set Win')
-      this.setState({isWin: win})
-    }
+    
+    // let win = true
+    // this.state.cardStatesTable.forEach((x) => {
+    //   [...x].forEach((k) => {
+    //     if(k === 0) {
+    //       win = false
+    //     }
+    //   })
+    // })
+    
+    // if(win === true) {
+    //   this.setState({isWin: win})
+    // }
 
-    console.log(this.state.isWin)
+    // console.log(this.state.isWin)
   }
   
   toggleCard = (row, col) => {
@@ -77,7 +79,6 @@ class App extends Component {
           toggleCard={this.toggleCard}
           isWin={isWin}
         />
-        {/* <button onClick={e => this.chkWinCondition()}/> */}
       </Container>
     )
   }
