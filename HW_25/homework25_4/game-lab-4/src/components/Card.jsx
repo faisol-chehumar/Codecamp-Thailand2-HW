@@ -21,14 +21,9 @@ const Retangle = styled.li`
 `
 
 class Card extends Component {
-  // state = {
-  //   cardState: this.props.cardState
-  // }
 
   toggleCard = e => {
     e.preventDefault()
-    console.log(this.props.row)
-    console.log(this.props.col)
     this.props.toggleCard(this.props.row, this.props.col)
   }
 

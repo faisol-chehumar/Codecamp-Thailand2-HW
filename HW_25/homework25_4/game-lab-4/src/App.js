@@ -12,7 +12,7 @@ const Container = styled.div`
 class App extends Component {
 
   state = {
-    cardStatesTable: [
+    cardStateLists: [
       [0, 0, 0, 0, 0],
       [0, 1, 1, 1, 0],
       [0, 1, 0, 1, 0],
@@ -22,32 +22,16 @@ class App extends Component {
     isWin: false
   }
 
-  chkWinCondition() {
-    const [a, b, c, d, e] = this.state.cardStatesTable;
-    // const allCardState = [...a, ...b, ...c, ...d, ...e]
-    return[...a, ...b, ...c, ...d, ...e].reduce((i, j) => i * j) ? this.setState({isWin: true}) : 'Not win yet!'
-    
-    
-    // let win = true
-    // this.state.cardStatesTable.forEach((x) => {
-    //   [...x].forEach((k) => {
-    //     if(k === 0) {
-    //       win = false
-    //     }
-    //   })
-    // })
-    
-    // if(win === true) {
-    //   this.setState({isWin: win})
-    // }
-
-    // console.log(this.state.isWin)
+  chkWin() {
+    const [a, b, c, d, e] = this.state.cardStateLists
+    return [...a, ...b, ...c, ...d, ...e].reduce((i, j) => i * j) ? 
+      this.setState({isWin: true}) : 'Not win yet!'
   }
   
   toggleCard = (row, col) => {
     const
-      cardStatesTableTmp = [...this.state.cardStatesTable],
-      indexList = [
+      cardStateListsTmp = [...this.state.cardStateLists],
+      toggleStateLists = [
         [row, col],
         [row, col - 1],
         [row - 1, col],
@@ -55,27 +39,27 @@ class App extends Component {
         [row + 1, col]
       ]
     
-    indexList
-      .filter((index) => {
-        const [r, c] = [...index]
+    toggleStateLists
+      .filter((row) => {
+        const [r, c] = [...row]
         return r <= 4 && r >= 0 && c <= 4 && c >= 0
       })
-      .forEach(index => {
-        const [r, c] = [...index]
-        cardStatesTableTmp[r][c] = cardStatesTableTmp[r][c] === 0 ? cardStatesTableTmp[r][c] + 1 : 0
+      .forEach(row => {
+        const [r, c] = [...row]
+        cardStateListsTmp[r][c] = cardStateListsTmp[r][c] === 0 ? cardStateListsTmp[r][c] + 1 : 0
       })
 
-    this.setState({cardStatesTable: cardStatesTableTmp})
-    this.chkWinCondition()
+    this.setState({cardStateLists: cardStateListsTmp})
+    this.chkWin()
   }
 
   render() {
-    const { cardStatesTable, isWin } = this.state
+    const { cardStateLists, isWin } = this.state
 
     return (
       <Container>
         <CardTable
-          cardStatesTable={cardStatesTable}
+          cardStateLists={cardStateLists}
           toggleCard={this.toggleCard}
           isWin={isWin}
         />

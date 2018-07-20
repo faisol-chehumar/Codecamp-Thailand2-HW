@@ -11,10 +11,10 @@ const CardContainer = styled.ul`
   width: 300px;
 `
 
-const CardTable = ({cardStatesTable, toggleCard, isWin}) => (
+const CardTable = ({cardStateLists, toggleCard, isWin}) => (
   <CardContainer>
     {
-      cardStatesTable.map((cardStateLists, row) => {
+      cardStateLists.map((cardStateLists, row) => {
         return (
           cardStateLists.map((cardState, col) => {
             return (
