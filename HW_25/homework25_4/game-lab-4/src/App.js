@@ -50,6 +50,7 @@ class App extends Component {
       })
 
     this.setState({cardStateLists: cardStateListsTmp})
+    console.log(this.state.cardStateLists)
     this.chkWin()
   }
 
