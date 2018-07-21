@@ -3,11 +3,12 @@ import React, { Component } from 'react'
 import { injectGlobal } from 'styled-components'
 import 'normalize.css'
 import Home from './views/home'
+import { getColor } from './styles/colors'
 
 injectGlobal`
-  h1,h2,h3,h4,h5,h6 {
+  h1, h2, h3, h4, h5, h6, p {
     &::selection {
-      background-color: red;
+      background-color: ${getColor('photon')};
     }
   }
 `
