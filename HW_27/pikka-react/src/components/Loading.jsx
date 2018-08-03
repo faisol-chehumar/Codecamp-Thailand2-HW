@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getColor } from '../styles/colors'
+import { setColor } from '../styles'
 
 const LoadingContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center
-  background-color: hsl(240, 2%, 15%, 1);
   text-shadow:
     -1px -1px 0 hsl(240, 2%, 5%, 1),
     1px -1px 0 hsl(240, 2%, 5%, 1),
@@ -15,7 +14,7 @@ const LoadingContainer = styled.div`
   width: 100%;
   height: 100vh;
   position: fixed;
-  color: ${getColor('highlight')};
+  color: ${setColor('highlight')};
   font-size: 5rem;
 `
 

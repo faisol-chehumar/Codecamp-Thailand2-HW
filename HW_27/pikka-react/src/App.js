@@ -1,24 +1,34 @@
 import React, { Component } from 'react'
-// import logo from './logo.svg'
-import { injectGlobal } from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import 'normalize.css'
 import Home from './views/home'
-import { getColor } from './styles/colors'
+import {setColor} from './styles'
 
 injectGlobal`
-  h1, h2, h3, h4, h5, h6, p {
+  html {
+    background-color: ${setColor('base')};
+  }
+
+  h1, h2, h3, h4, h5, h6, {
+    color: ${setColor('base', 25)};
+    font-weight: 800;
+    
     &::selection {
-      background-color: ${getColor('photon')};
+      background-color: ${setColor('highlight')};
     }
   }
+`
+
+const MainContainer = styled.div`
+  
 `
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <MainContainer className="App">
         <Home />
-      </div>
+      </MainContainer>
     )
   }
 }
