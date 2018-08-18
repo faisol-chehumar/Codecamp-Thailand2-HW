@@ -1,15 +1,19 @@
 class MobilePhone {
-  constructor (brand) {
-    this.brand = brand
+  constructor (telNumber, sms) {
+    this._telNumber = telNumber
+    this._sms = sms
   }
-  PhoneCall () {
 
+  phoneCall () {
+    console.log(`Dailing... ${this._telNumber}`)
   }
+
   SMS () {
-
+    console.log(`Send SMS to ${this._sms}`)
   }
+  
   InternetSurfing () {
-
+    console.log('Open chorme browser')
   }
 
 }
