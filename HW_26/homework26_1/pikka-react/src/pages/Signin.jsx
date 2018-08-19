@@ -4,6 +4,7 @@ class Signin extends Component {
   state = {
     email: "",
     password: "",
+    isAuth: 'false'
   };
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -20,8 +21,14 @@ class Signin extends Component {
         }),  
         credentials: 'include'
       })
-   
+      const data = await response.json()
       console.log(response.status)
+      console.log(data)
+
+      if(response.status === 200) {
+        this.setState({isAuth: true})
+      }
+
     } catch (err) {
       console.log("error");
       console.log(err);

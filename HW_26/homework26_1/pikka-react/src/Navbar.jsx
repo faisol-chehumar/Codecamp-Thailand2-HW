@@ -28,6 +28,11 @@ const Navbar = props => (
         Signin
       </NavLink>
     </li>
+    <li style={{ marginRight: "0.5rem" }}>
+      <NavLink activeStyle={activeClass} to="/create">
+        Create
+      </NavLink>
+    </li>
   </ul>
 );
 
