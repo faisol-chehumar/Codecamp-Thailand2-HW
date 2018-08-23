@@ -5,7 +5,6 @@ const _rem = {
   lg: '2rem'
 }
 
-
 export const setLayout =  {
   widthHeight: (width='100%', height='auto') => `
     width: ${width} 
@@ -23,5 +22,8 @@ export const setLayout =  {
     align-items: ${verticleAlign}
     margin: 0
     padding: 0
-  `
+  `,
+  border: (width = 1, opacity = 0.5) => {
+    return `${width}px solid rgba(0, 0, 0, ${opacity})`
+  }
 }

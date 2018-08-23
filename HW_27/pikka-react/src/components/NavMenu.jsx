@@ -5,11 +5,11 @@ import { setColor, setLayout } from '../styles'
 const NavMenuContainer = styled.li`
   ${setLayout.widthHeight('100%', '5rem')};
   ${setLayout.flexFlowContentItem('row wrap', 'center', 'center')};
-  background-color: ${setColor('base', 18)};
+  background-color: ${setColor('base', 29)};
   color: ${setColor('base', 90)};
   font-size: 1.3rem;
   font-weight: 800;
-  border-bottom: 1px solid #eee;
+  border-bottom: ${setLayout.border(1)};
 
   &::selection {
     color: ${setColor('photon')};
@@ -20,7 +20,7 @@ const NavMenuContainer = styled.li`
 const NavMenu = ({title}) => {
   return (
     <NavMenuContainer>
-      {title}
+      <h1>{title}</h1>
     </NavMenuContainer>
   )
 }

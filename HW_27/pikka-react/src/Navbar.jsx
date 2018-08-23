@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {setColor, setLayout} from '../styles'
+import {setColor, setLayout} from './styles'
 
-import NavMenu from './NavMenu'
+import NavMenu from './components/NavMenu'
 
 const NavContainer = styled.ul`
   position: fixed;
@@ -11,7 +11,7 @@ const NavContainer = styled.ul`
   
   list-style: none;  
   background-color: ${setColor('base', 20)};
-  border-right: 1px solid ${setColor('base', 15)};
+  border-right: ${setLayout.border(1)};
   
 `
 
